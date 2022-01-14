@@ -1,13 +1,13 @@
-package com.clientes.clientesspring;
+package com.clients.clientsspring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ClientesSpringApplication {
+public class ClientsSpringApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ClientesSpringApplication.class, args);
+		SpringApplication.run(ClientsSpringApplication.class, args);
 	}
 
 }
