@@ -1,5 +1,6 @@
 package com.clients.clientsspring.controller;
 
+import com.clients.clientsspring.model.Client;
 import com.clients.clientsspring.service.ClientService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,8 +33,8 @@ public class ClientController {
     }
 
     @PutMapping("/{id}")
-    public void updateClient() {
-        clientService.updateClient();
+    public void updateClient( @RequestBody Client client, @PathVariable Integer id ) {
+        clientService.updateClient(client);
     }
 
     @DeleteMapping("/{id}")

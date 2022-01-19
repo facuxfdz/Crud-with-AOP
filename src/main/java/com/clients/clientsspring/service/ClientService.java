@@ -1,6 +1,8 @@
 package com.clients.clientsspring.service;
 
 import com.clients.clientsspring.annotations.LogAfter;
+import com.clients.clientsspring.model.Client;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -19,7 +21,11 @@ public class ClientService {
     }
 
     @LogAfter
-    public void updateClient() {
+    public void updateClient(Client client) {
+        if(client.getName() == "" || client.getLastname() == "" || client.getName() == null || client.getLastname() == null ){
+            logger.error("Client names must be provided");
+            return;
+        }
         logger.debug("Updated client info");
     }
 
