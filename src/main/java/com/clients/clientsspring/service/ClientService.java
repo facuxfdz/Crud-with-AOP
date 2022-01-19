@@ -1,6 +1,7 @@
 package com.clients.clientsspring.service;
 
 import com.clients.clientsspring.annotations.LogAfter;
+import com.clients.clientsspring.exceptions.MissedFieldsException;
 import com.clients.clientsspring.model.Client;
 
 import org.apache.logging.log4j.LogManager;
@@ -21,10 +22,9 @@ public class ClientService {
     }
 
     @LogAfter
-    public void updateClient(Client client) {
+    public void updateClient(Client client) throws MissedFieldsException {
         if(client.getName() == "" || client.getLastname() == "" || client.getName() == null || client.getLastname() == null ){
-            logger.error("Client names must be provided");
-            return;
+            throw new MissedFieldsException("Missed fields");
         }
         logger.debug("Updated client info");
     }

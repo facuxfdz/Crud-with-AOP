@@ -1,5 +1,6 @@
 package com.clients.clientsspring.controller;
 
+import com.clients.clientsspring.exceptions.MissedFieldsException;
 import com.clients.clientsspring.model.Client;
 import com.clients.clientsspring.service.ClientService;
 import org.apache.logging.log4j.LogManager;
@@ -33,7 +34,7 @@ public class ClientController {
     }
 
     @PutMapping("/{id}")
-    public void updateClient( @RequestBody Client client, @PathVariable Integer id ) {
+    public void updateClient( @RequestBody Client client, @PathVariable Integer id ) throws MissedFieldsException {
         clientService.updateClient(client);
     }
 
